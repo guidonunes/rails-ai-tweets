@@ -1,1 +1,7 @@
 <h1>Write a new tweet: </h1>
+
+<%=simple_form_for @tweet do |f|%>
+  <%=f.input :long%>
+
+  <%=f.submit "Shorten my tweet", class: "btn btn-primary"%>
+<%end%>
