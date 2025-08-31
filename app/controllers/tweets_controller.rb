@@ -12,6 +12,11 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
 
+    chat = RubyLLM.chat(model: "gemini-2.5-pro")
+    response = chat.ask("Generate a tweet with less than 280 characters based on this text: #{@tweet.long}")
+
+    @tweet.shortened = response.content
+
     if @tweet.save
       redirect_to tweet_path(@tweet)
     else
