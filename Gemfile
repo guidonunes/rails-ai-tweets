@@ -48,6 +48,8 @@ gem "sassc-rails"
 
 gem "ruby_llm"
 
+gem "devise"
+
 
 
 group :development, :test do
